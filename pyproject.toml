@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "re-rizin"
+version = "0.1.0"
+description = "MCP server exposing rizin (radare2 successor) for static binary analysis: functions, disassembly, xrefs, strings, decompilation, ESIL emulation, CFG."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+keywords = ["mcp", "rizin", "rz-bin", "rz-asm", "decompilation", "esil", "reverse-engineering"]
+authors = [{name = "John"}]
+dependencies = [
+    "mcp[cli]>=1.2",
+    "pydantic>=2.6",
+]
+
+[project.scripts]
+re-rizin = "re_rizin.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
